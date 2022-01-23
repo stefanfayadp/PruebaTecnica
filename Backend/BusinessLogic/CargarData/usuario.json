@@ -1,0 +1,10 @@
+[
+  {
+    "Nombre": "Dummy",
+    "Apellidos": "Dummy",
+    "Tipo identificacion": "Cedula",
+    "Numero Identificacion": "1063168050",
+    "Genero": "Masculino",
+    "Edad":  25
+  }
+]
