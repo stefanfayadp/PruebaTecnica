@@ -17,12 +17,16 @@ namespace BusinessLogic.Data
         public DbSet<Marca> Marca { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<Venta> Venta { get; set; }
-
         public DbSet<VentaDetalle> VentaDetalle { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            modelBuilder.Entity<Producto>().Property(p => p.Precio).HasColumnType("decimal(18,2)");
+            modelBuilder.Entity<Venta>().Property(p => p.TotalVenta).HasColumnType("decimal(18,2)");
+            modelBuilder.Entity<VentaDetalle>().Property(p => p.Descuento).HasColumnType("decimal(18,2)");
+
+
         }
     }
 }

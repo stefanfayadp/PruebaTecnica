@@ -37,7 +37,7 @@ namespace ApiWeb
             services.AddDbContext<MarketDbContext>(opt => {
                 opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
-            services.AddTransient<IProductoRepository, ProductoRepository>();
+            //services.AddTransient<IProductoRepository, ProductoRepository>();
             services.AddControllers();
 
             services.AddCors(opt => {
