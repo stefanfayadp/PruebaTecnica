@@ -39,8 +39,6 @@ namespace ApiWeb.Controllers
 
             var data = _mapper.Map<IReadOnlyList<Venta>, IReadOnlyList<VentaDto>>(ventas);
 
-            //return Ok(_mapper.Map<IReadOnlyList<Venta>, IReadOnlyList<VentaDto>>(ventas));
-
             return Ok(
                 new Pagination<VentaDto>
                 {
