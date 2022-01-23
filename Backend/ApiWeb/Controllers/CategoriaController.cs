@@ -31,5 +31,29 @@ namespace ApiWeb.Controllers
         {
             return await _categoriaRepository.GetByIdAsync(id);
         }
+
+        [HttpPost]
+        public async Task<ActionResult<Categoria>> Post(Categoria categoria)
+        {
+            var resultado = await _categoriaRepository.Add(categoria);
+            if (resultado == 0)
+            {
+                throw new Exception("Error al insertar categoria");
+            }
+
+            return Ok(categoria);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<Categoria>> Put(int id, Categoria categoria)
+        {
+            categoria.Id = id;
+            var resultado = await _categoriaRepository.Update(categoria);
+            if (resultado == 0)
+            {
+                throw new Exception("Error al actualizar categoria");
+            }
+            return Ok(categoria);
+        }
     }
 }

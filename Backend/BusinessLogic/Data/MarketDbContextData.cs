@@ -68,6 +68,32 @@ namespace BusinessLogic.Data
                     await context.SaveChangesAsync();
                 }
 
+                if (!context.Venta.Any())
+                {
+                    var ventaData = File.ReadAllText("../BusinessLogic/CargarData/venta.json");
+                    var ventas = JsonSerializer.Deserialize<List<Venta>>(ventaData);
+
+                    foreach (var venta in ventas)
+                    {
+                        context.Venta.Add(venta);
+                    }
+
+                    await context.SaveChangesAsync();
+                }
+
+                if (!context.VentaDetalle.Any())
+                {
+                    var ventaDetalleData = File.ReadAllText("../BusinessLogic/CargarData/ventaDetalle.json");
+                    var ventaDetalles = JsonSerializer.Deserialize<List<VentaDetalle>>(ventaDetalleData);
+
+                    foreach (var ventaDetalle in ventaDetalles)
+                    {
+                        context.VentaDetalle.Add(ventaDetalle);
+                    }
+
+                    await context.SaveChangesAsync();
+                }
+
             }
             catch (Exception e )
             {

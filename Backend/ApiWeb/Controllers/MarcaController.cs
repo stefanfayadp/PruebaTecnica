@@ -29,6 +29,29 @@ namespace ApiWeb.Controllers
         {
             return await _marcaRepository.GetByIdAsync(id);
         }
-        
+
+        [HttpPost]
+        public async Task<ActionResult<Marca>> Post(Marca marca)
+        {
+            var resultado = await _marcaRepository.Add(marca);
+            if (resultado == 0)
+            {
+                throw new Exception("Error al insertar marca");
+            }
+
+            return Ok(marca);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<Marca>> Put(int id, Marca marca)
+        {
+            marca.Id = id;
+            var resultado = await _marcaRepository.Update(marca);
+            if (resultado == 0)
+            {
+                throw new Exception("Error al actualizar marca");
+            }
+            return Ok(marca);
+        }
     }
 }
