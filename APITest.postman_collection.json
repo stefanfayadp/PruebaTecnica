@@ -1,0 +1,558 @@
+{
+	"info": {
+		"_postman_id": "260a15d3-4398-4447-9e4e-c767538ab42b",
+		"name": "PruebaTecnica",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Venta",
+			"item": [
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:48555/api/VentaDetalle?Venta=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "48555",
+							"path": [
+								"api",
+								"VentaDetalle"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "nombreAsc",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "Venta",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n  {\r\n    \"VentaId\": 2,\r\n    \"ProductoId\": 2,\r\n    \"Cantidad\": 1,\r\n    \"Descuento\": 0\r\n  }\r\n\r\n  ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:48555/api/VentaDetalle",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "48555",
+							"path": [
+								"api",
+								"VentaDetalle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"UsuarioId\": 3,\r\n    \"TotalVenta\": 62000,\r\n    \"FechaVenta\": \"2022-01-23T17:01:30\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:48555/api/Venta/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "48555",
+							"path": [
+								"api",
+								"Venta",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Venta Detalle",
+			"item": [
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:48555/api/VentaDetalle",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "48555",
+							"path": [
+								"api",
+								"VentaDetalle"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "nombreAsc",
+									"disabled": true
+								},
+								{
+									"key": "marca",
+									"value": "3",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "Dummy",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"UsuarioId\": 2,\r\n    \"TotalVenta\": 62000,\r\n    \"FechaVenta\": \"2022-01-23T17:01:30\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:48555/api/VentaDetalle",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "48555",
+							"path": [
+								"api",
+								"VentaDetalle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n  {\r\n    \"VentaId\": 2,\r\n    \"ProductoId\": 6,\r\n    \"Cantidad\": 1,\r\n    \"Descuento\": 0\r\n  }\r\n\r\n  ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:48555/api/VentaDetalle/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "48555",
+							"path": [
+								"api",
+								"VentaDetalle",
+								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"Nombre\": \"Dummy\",\r\n    \"Apellidos\": \"Dummy\",\r\n    \"TipoIdentificacion\": \"Dummy\",\r\n    \"NumeroIdentificacion\": \"Dummy\",\r\n    \"Genero\": \"Dummy\",\r\n    \"Edad\":  1\r\n  }\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:48555/api/Usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "48555",
+							"path": [
+								"api",
+								"Usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:48555/api/Usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "48555",
+							"path": [
+								"api",
+								"Usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"Nombre\": \"Dummy\",\r\n    \"Apellidos\": \"Dummy\",\r\n    \"TipoIdentificacion\": \"Dummy\",\r\n    \"NumeroIdentificacion\": \"Dummy\",\r\n    \"Genero\": \"Dummy\",\r\n    \"Edad\":  1\r\n  }\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:48555/api/Usuario/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "48555",
+							"path": [
+								"api",
+								"Usuario",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Marca",
+			"item": [
+				{
+					"name": "Marca",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:48555/api/Marca",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "48555",
+							"path": [
+								"api",
+								"Marca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"Nombre\": \"Desde el body\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:48555/api/Marca",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "48555",
+							"path": [
+								"api",
+								"Marca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"Nombre\": \"Desde el body\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:48555/api/Marca/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "48555",
+							"path": [
+								"api",
+								"Marca",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categoria",
+			"item": [
+				{
+					"name": "Categoria",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:48555/api/Categoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "48555",
+							"path": [
+								"api",
+								"Categoria"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"Nombre\": \"Desde el body\"\r\n  }\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:48555/api/Categoria/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "48555",
+							"path": [
+								"api",
+								"Categoria",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"Nombre\": \"Desde el body\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:48555/api/Categoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "48555",
+							"path": [
+								"api",
+								"Categoria"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Productos",
+			"item": [
+				{
+					"name": "Productos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:48555/api/Producto/?search=Tenis",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "48555",
+							"path": [
+								"api",
+								"Producto",
+								""
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "nombreAsc",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "Tenis"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Zapatos\",\r\n    \"descripcion\": \"Zapatos\",\r\n    \"stock\": 100,\r\n    \"marcaId\": 3,\r\n    \"categoriaId\": 1,\r\n    \"precio\": 500000.00,\r\n    \"imagen\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:48555/api/Producto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "48555",
+							"path": [
+								"api",
+								"Producto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"Nombre\": \"Dummy\",\r\n    \"Apellidos\": \"Dummy\",\r\n    \"TipoIdentificacion\": \"Dummy\",\r\n    \"NumeroIdentificacion\": \"Dummy\",\r\n    \"Genero\": \"Dummy\",\r\n    \"Edad\":  1\r\n  }\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:48555/api/Usuario/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "48555",
+							"path": [
+								"api",
+								"Usuario",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
