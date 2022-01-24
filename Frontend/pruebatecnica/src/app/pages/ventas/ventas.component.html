@@ -1,0 +1,57 @@
+<!-- <dx-data-grid
+    [dataSource]="store">
+</dx-data-grid>
+<h2 class="content-block">Tasks</h2> -->
+
+<dx-data-grid class="dx-card wide-card"
+  [dataSource]="store"
+  [showBorders]="true"
+  [focusedRowEnabled]="true"
+  [focusedRowIndex]="0">
+
+  <dxi-column
+    dataField="id"
+    [width]="90">
+  </dxi-column>
+  <dxi-column
+    dataField="usuarioNombre"
+    caption="Nombre">
+  </dxi-column>
+  <dxi-column
+    dataField="usuarioApellidos"
+    caption="Apellidos">
+  </dxi-column>
+  <dxi-column
+    dataField="usuarioTipoIdentificacion"
+    caption="Tipo Documento"
+    [allowSorting]="true">
+  </dxi-column>
+  <dxi-column
+    dataField="numeroIdentificacion"
+    caption="Numero Documento"
+    dataType="number">
+  </dxi-column>
+  <dxi-column
+    dataField="usuarioGenero"
+    caption="Genero"
+    >
+  </dxi-column>
+  <dxi-column
+    dataField="totalVenta"
+    caption="Total Venta"
+    name="totalVenta"
+    dataType="number">
+  </dxi-column>
+  <dxi-column
+    dataField="fechaVenta"
+    caption="Fecha Venta"
+    dataType="date">
+  </dxi-column>
+  <dxo-master-detail [enabled]="true" template="detail"></dxo-master-detail>
+  <div *dxTemplate="let venta of 'detail'">
+    <div class="master-detail-caption">{{
+      venta.data.FirstName + " " + venta.data.LastName + "'s Tasks:"
+    }}</div>
+    <!-- <venta-detalle [key]="venta.key"></venta-detalle> -->
+  </div>
+</dx-data-grid>

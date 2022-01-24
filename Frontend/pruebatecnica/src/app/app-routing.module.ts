@@ -4,13 +4,14 @@ import { LoginFormComponent, ResetPasswordFormComponent, CreateAccountFormCompon
 import { AuthGuardService } from './shared/services';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { TasksComponent } from './pages/tasks/tasks.component';
 import { DxDataGridModule, DxFormModule } from 'devextreme-angular';
+import { VentasComponent } from './pages/ventas/ventas.component';
+import { VentaDetalleComponent } from './pages/ventadetalle/ventadetalle.component';
 
 const routes: Routes = [
   {
-    path: 'tasks',
-    component: TasksComponent,
+    path: 'ventas',
+    component: VentasComponent,
     canActivate: [ AuthGuardService ]
   },
   {
@@ -45,7 +46,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'login-form'
+    redirectTo: 'home'
   }
 ];
 
@@ -53,6 +54,6 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, { useHash: true }), DxDataGridModule, DxFormModule],
   providers: [AuthGuardService],
   exports: [RouterModule],
-  declarations: [HomeComponent, ProfileComponent, TasksComponent]
+  declarations: [HomeComponent, ProfileComponent, VentasComponent, VentaDetalleComponent]
 })
 export class AppRoutingModule { }
