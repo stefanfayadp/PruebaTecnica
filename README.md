@@ -21,3 +21,7 @@ Como iniciar el proyecto:
 
 2. Realizar migraciones de entity framework: En una terminal de comandos situarse en la ruta C:\Users\User\source\repos\stefanfayadp\PruebaTecnica\Backend\  y ejecutar el comando dotnet ef migrations add MigrationName -p BusinessLogic -s ApiWeb -o Data/Migrations
 
+Frontend
+
+1. npm install en el directorio raiz PruebaTecnica\Frontend\pruebatecnica para descargar depedencias
+2. npm run start para iniciar el proyecto en ambiente de desarrollo el cual correra sobre la url http://localhost:4200
