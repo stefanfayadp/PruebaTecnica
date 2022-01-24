@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "260a15d3-4398-4447-9e4e-c767538ab42b",
+		"_postman_id": "98434b18-4fd2-4a26-97cd-7c5318dccda9",
 		"name": "PruebaTecnica",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -14,7 +14,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:48555/api/VentaDetalle?Venta=2",
+							"raw": "http://localhost:48555/api/Venta",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -22,7 +22,7 @@
 							"port": "48555",
 							"path": [
 								"api",
-								"VentaDetalle"
+								"Venta"
 							],
 							"query": [
 								{
@@ -37,7 +37,8 @@
 								},
 								{
 									"key": "Venta",
-									"value": "2"
+									"value": "2",
+									"disabled": true
 								}
 							]
 						}
@@ -114,7 +115,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:48555/api/VentaDetalle",
+							"raw": "http://localhost:48555/api/VentaDetalle?Venta=2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -126,18 +127,12 @@
 							],
 							"query": [
 								{
+									"key": "Venta",
+									"value": "2"
+								},
+								{
 									"key": "sort",
 									"value": "nombreAsc",
-									"disabled": true
-								},
-								{
-									"key": "marca",
-									"value": "3",
-									"disabled": true
-								},
-								{
-									"key": "search",
-									"value": "Dummy",
 									"disabled": true
 								}
 							]
