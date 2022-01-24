@@ -1,0 +1,260 @@
+USE [master]
+GO
+/****** Object:  Database [marketplace]    Script Date: 23/01/2022 1:47:23 a. m. ******/
+CREATE DATABASE [marketplace]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'marketplace', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\marketplace.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'marketplace_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\marketplace_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT
+GO
+ALTER DATABASE [marketplace] SET COMPATIBILITY_LEVEL = 150
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [marketplace].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [marketplace] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [marketplace] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [marketplace] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [marketplace] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [marketplace] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [marketplace] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [marketplace] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [marketplace] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [marketplace] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [marketplace] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [marketplace] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [marketplace] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [marketplace] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [marketplace] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [marketplace] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [marketplace] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [marketplace] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [marketplace] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [marketplace] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [marketplace] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [marketplace] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [marketplace] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [marketplace] SET RECOVERY FULL 
+GO
+ALTER DATABASE [marketplace] SET  MULTI_USER 
+GO
+ALTER DATABASE [marketplace] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [marketplace] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [marketplace] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [marketplace] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [marketplace] SET DELAYED_DURABILITY = DISABLED 
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'marketplace', N'ON'
+GO
+ALTER DATABASE [marketplace] SET QUERY_STORE = OFF
+GO
+USE [marketplace]
+GO
+/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 23/01/2022 1:47:23 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[__EFMigrationsHistory](
+	[MigrationId] [nvarchar](150) NOT NULL,
+	[ProductVersion] [nvarchar](32) NOT NULL,
+ CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY CLUSTERED 
+(
+	[MigrationId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Categoria]    Script Date: 23/01/2022 1:47:23 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Categoria](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [nvarchar](max) NULL,
+ CONSTRAINT [PK_Categoria] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Marca]    Script Date: 23/01/2022 1:47:23 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Marca](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [nvarchar](max) NULL,
+ CONSTRAINT [PK_Marca] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Producto]    Script Date: 23/01/2022 1:47:23 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Producto](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [nvarchar](max) NULL,
+	[Descripcion] [nvarchar](max) NULL,
+	[Stock] [int] NOT NULL,
+	[MarcaId] [int] NOT NULL,
+	[CategoriaId] [int] NOT NULL,
+	[Precio] [decimal](18, 2) NOT NULL,
+	[Imagen] [nvarchar](max) NULL,
+ CONSTRAINT [PK_Producto] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Usuario]    Script Date: 23/01/2022 1:47:23 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Usuario](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [nvarchar](max) NULL,
+	[Apellidos] [nvarchar](max) NULL,
+	[TipoIdentificacion] [nvarchar](max) NULL,
+	[NumeroIdentificacion] [nvarchar](max) NULL,
+	[Genero] [nvarchar](max) NULL,
+	[Edad] [int] NOT NULL,
+ CONSTRAINT [PK_Usuario] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Venta]    Script Date: 23/01/2022 1:47:23 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Venta](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[UsuarioId] [int] NOT NULL,
+	[TotalVenta] [decimal](18, 2) NOT NULL,
+	[FechaVenta] [datetime2](7) NOT NULL,
+ CONSTRAINT [PK_Venta] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[VentaDetalle]    Script Date: 23/01/2022 1:47:23 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[VentaDetalle](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[VentaId] [int] NOT NULL,
+	[ProductoId] [int] NOT NULL,
+	[Cantidad] [int] NOT NULL,
+	[Descuento] [decimal](18, 2) NOT NULL,
+ CONSTRAINT [PK_VentaDetalle] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Index [IX_Producto_CategoriaId]    Script Date: 23/01/2022 1:47:23 a. m. ******/
+CREATE NONCLUSTERED INDEX [IX_Producto_CategoriaId] ON [dbo].[Producto]
+(
+	[CategoriaId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+/****** Object:  Index [IX_Producto_MarcaId]    Script Date: 23/01/2022 1:47:23 a. m. ******/
+CREATE NONCLUSTERED INDEX [IX_Producto_MarcaId] ON [dbo].[Producto]
+(
+	[MarcaId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+/****** Object:  Index [IX_Venta_UsuarioId]    Script Date: 23/01/2022 1:47:23 a. m. ******/
+CREATE NONCLUSTERED INDEX [IX_Venta_UsuarioId] ON [dbo].[Venta]
+(
+	[UsuarioId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+/****** Object:  Index [IX_VentaDetalle_ProductoId]    Script Date: 23/01/2022 1:47:23 a. m. ******/
+CREATE NONCLUSTERED INDEX [IX_VentaDetalle_ProductoId] ON [dbo].[VentaDetalle]
+(
+	[ProductoId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+/****** Object:  Index [IX_VentaDetalle_VentaId]    Script Date: 23/01/2022 1:47:23 a. m. ******/
+CREATE NONCLUSTERED INDEX [IX_VentaDetalle_VentaId] ON [dbo].[VentaDetalle]
+(
+	[VentaId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Producto]  WITH CHECK ADD  CONSTRAINT [FK_Producto_Categoria_CategoriaId] FOREIGN KEY([CategoriaId])
+REFERENCES [dbo].[Categoria] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Producto] CHECK CONSTRAINT [FK_Producto_Categoria_CategoriaId]
+GO
+ALTER TABLE [dbo].[Producto]  WITH CHECK ADD  CONSTRAINT [FK_Producto_Marca_MarcaId] FOREIGN KEY([MarcaId])
+REFERENCES [dbo].[Marca] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Producto] CHECK CONSTRAINT [FK_Producto_Marca_MarcaId]
+GO
+ALTER TABLE [dbo].[Venta]  WITH CHECK ADD  CONSTRAINT [FK_Venta_Usuario_UsuarioId] FOREIGN KEY([UsuarioId])
+REFERENCES [dbo].[Usuario] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Venta] CHECK CONSTRAINT [FK_Venta_Usuario_UsuarioId]
+GO
+ALTER TABLE [dbo].[VentaDetalle]  WITH CHECK ADD  CONSTRAINT [FK_VentaDetalle_Producto_ProductoId] FOREIGN KEY([ProductoId])
+REFERENCES [dbo].[Producto] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[VentaDetalle] CHECK CONSTRAINT [FK_VentaDetalle_Producto_ProductoId]
+GO
+ALTER TABLE [dbo].[VentaDetalle]  WITH CHECK ADD  CONSTRAINT [FK_VentaDetalle_Venta_VentaId] FOREIGN KEY([VentaId])
+REFERENCES [dbo].[Venta] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[VentaDetalle] CHECK CONSTRAINT [FK_VentaDetalle_Venta_VentaId]
+GO
+USE [master]
+GO
+ALTER DATABASE [marketplace] SET  READ_WRITE 
+GO
